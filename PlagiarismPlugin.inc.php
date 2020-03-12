@@ -76,15 +76,14 @@ class PlagiarismPlugin extends GenericPlugin {
 			//$redis->auth('redis_password');
 			$username = $redis->get("ithenticate_username");
 			$password = $redis->get("ithenticate_password");
-		} catch (Exception $e) {
-			echo $e->getMessage();
+		} 
+		catch (Exception $e) {
+			error_log($e->getMessage());
 		}
 
 		$ithenticate = new \bsobbe\ithenticate\Ithenticate(
 			$username,
 			$password
-			//Config::getVar('ithenticate', 'username'),
-			//Config::getVar('ithenticate', 'password')
 		);
 
 		// Make sure there's a group list for this context, creating if necessary.
