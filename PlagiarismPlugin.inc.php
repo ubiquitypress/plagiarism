@@ -69,9 +69,22 @@ class PlagiarismPlugin extends GenericPlugin {
 
 		require_once(dirname(__FILE__) . '/vendor/autoload.php');
 
+		try {
+			$redis = new Redis();
+			// Connecting to Redis host, port
+			$redis->connect('redis','6379');
+			//$redis->auth('redis_password');
+			$username = $redis->get("ithenticate_username");
+			$password = $redis->get("ithenticate_password");
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+
 		$ithenticate = new \bsobbe\ithenticate\Ithenticate(
-			Config::getVar('ithenticate', 'username'),
-			Config::getVar('ithenticate', 'password')
+			$username,
+			$password
+			//Config::getVar('ithenticate', 'username'),
+			//Config::getVar('ithenticate', 'password')
 		);
 
 		// Make sure there's a group list for this context, creating if necessary.
