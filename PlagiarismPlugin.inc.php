@@ -55,6 +55,32 @@ class PlagiarismPlugin extends GenericPlugin {
 		if (!parent::getEnabled($contextId)) return false;
 		return Config::getVar('ithenticate', 'ithenticate');
 	}
+	
+	/**
+	 * @copydoc Plugin::getAuth()
+	 */
+	function getAuth() {
+		$auth = array(username => '', password => '');
+		$source = Config::getVar('ithenticate', 'ithenticate_backend');
+		
+		if($source == "redis") {
+			try {
+				$redis = new Redis();
+				// Connecting to Redis
+				$redis->connect('redis','6379');
+				//$redis->auth('redis_password');
+				$auth['username'] = $redis->get("ithenticate_username");
+				$auth['password'] = $redis->get("ithenticate_password");
+			} catch (Exception $e) {
+				error_log($e->getMessage());
+			}
+		} else {
+			$auth['username'] = Config::getVar('ithenticate', 'username');
+			$auth['password'] = Config::getVar('ithenticate', 'password');
+		}
+
+		return $auth;
+	}
 
 	/**
 	 * Send submission files to iThenticate.
@@ -68,22 +94,13 @@ class PlagiarismPlugin extends GenericPlugin {
 		$submission = $submissionDao->getById($request->getUserVar('submissionId'));
 
 		require_once(dirname(__FILE__) . '/vendor/autoload.php');
-
-		try {
-			$redis = new Redis();
-			// Connecting to Redis host, port
-			$redis->connect('redis','6379');
-			//$redis->auth('redis_password');
-			$username = $redis->get("ithenticate_username");
-			$password = $redis->get("ithenticate_password");
-		} 
-		catch (Exception $e) {
-			error_log($e->getMessage());
-		}
+		
+		// Get ithenticate username and password
+		$auth = $this->getAuth();
 
 		$ithenticate = new \bsobbe\ithenticate\Ithenticate(
-			$username,
-			$password
+			$auth['username'],
+			$auth['password']
 		);
 
 		// Make sure there's a group list for this context, creating if necessary.
