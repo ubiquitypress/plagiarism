@@ -25,6 +25,14 @@ class PlagiarismPlugin extends GenericPlugin {
 		}
 		return $success;
 	}
+	
+	/**
+	* @copydoc Plugin::isSitePlugin()
+	*/
+	function isSitePlugin() {
+		// This is a site-wide plugin.
+		return true;
+	}
 
 	/**
 	 * @copydoc Plugin::getDisplayName()
