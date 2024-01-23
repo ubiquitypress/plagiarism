@@ -166,7 +166,7 @@ class PlagiarismPlugin extends GenericPlugin {
 				Services::get('file')->fs->read($file->path),
 				$folderId
 			)) {
-				$this->sendErrorMessage($submission->getId(), 'Could not submit "' . $submissionFile->getData('path') . '" to iThenticate.');
+				// $this->sendErrorMessage($submission->getId(), 'Could not submit "' . $submissionFile->getData('path') . '" to iThenticate.');
 			}
 		}
 
