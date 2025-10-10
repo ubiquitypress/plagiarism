@@ -644,7 +644,7 @@ class PlagiarismPlugin extends GenericPlugin
 			$submission->setData('ithenticateSubmissionCompletedAt', Core::getCurrentDate());
 		} catch (Throwable $exception) {
 			error_log('submit for plagiarism check failed with excaption ' . $exception->__toString());
-			$this->sendErrorMessage(__('plugins.generic.plagiarism.ithenticate.upload.complete.failed'), $submission->getId());
+			// $this->sendErrorMessage(__('plugins.generic.plagiarism.ithenticate.upload.complete.failed'), $submission->getId());
 			return false;
 		}
 
