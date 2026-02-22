@@ -242,6 +242,13 @@ class PlagiarismPlugin extends GenericPlugin
 			],
 		];
 
+		$schema->properties->ithenticateTextIssue = (object) [
+			'type' => 'integer',
+			'description' => 'The file text issue',
+			'writeOnly' => true,
+			'validation' => ['nullable'],
+		];
+
 		return Hook::CONTINUE;
 	}
 
@@ -333,6 +340,13 @@ class PlagiarismPlugin extends GenericPlugin
 		$schema->properties->ithenticateRevisionHistory = (object) [
 			'type' => 'string',
 			'description' => 'The similarity check action history on the previous revisions of this submission file',
+			'writeOnly' => true,
+			'validation' => ['nullable'],
+		];
+
+		$schema->properties->ithenticateTextIssue = (object) [
+			'type' => 'integer',
+			'description' => 'The file text issue',
 			'writeOnly' => true,
 			'validation' => ['nullable'],
 		];
@@ -504,6 +518,7 @@ class PlagiarismPlugin extends GenericPlugin
 			'ithenticateSimilarityResult' => $currentSubmissionFile->getData('ithenticateSimilarityResult'),
 			'ithenticateSimilarityScheduled' => $currentSubmissionFile->getData('ithenticateSimilarityScheduled'),
 			'ithenticateSubmissionAcceptedAt' => $currentSubmissionFile->getData('ithenticateSubmissionAcceptedAt'),
+			'ithenticateTextIssue' => $currentSubmissionFile->getData('ithenticateTextIssue'),
 		]);
 		
 		$submissionFile->setData('ithenticateRevisionHistory', json_encode($revisionHistory));
@@ -511,6 +526,7 @@ class PlagiarismPlugin extends GenericPlugin
 		$submissionFile->setData('ithenticateSimilarityResult', null);
 		$submissionFile->setData('ithenticateSimilarityScheduled', 0);
 		$submissionFile->setData('ithenticateSubmissionAcceptedAt', null);
+		$submissionFile->setData('ithenticateTextIssue', null);
 
 		return Hook::CONTINUE;
 	}
@@ -835,6 +851,7 @@ class PlagiarismPlugin extends GenericPlugin
 		$submissionFile->setData('ithenticateId', $submissionUuid);
 		$submissionFile->setData('ithenticateFileId', $submissionFile->getData('fileId'));
 		$submissionFile->setData('ithenticateSimilarityScheduled', 0);
+		$submissionFile->setData('ithenticateTextIssue', 0);
 
 		Repo::submissionFile()->edit($submissionFile, []);
 
@@ -1009,6 +1026,7 @@ class PlagiarismPlugin extends GenericPlugin
 	{
 		$integrationVersion ??= $this->getCurrentVersion()->getVersionString();
 
+		$integrationName = 'OJS Plagiarism plugin for ' . getenv('JOURNAL_CODE') ?? $integrationName;
 		if (static::isRunningInTestMode()) {
 			return new TestIThenticate($apiUrl, $apiKey, $integrationName, $integrationVersion);
 		}

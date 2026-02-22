@@ -188,17 +188,23 @@ class PlagiarismIthenticateActionHandler extends PlagiarismComponentHandler
 						$similaritySchedulingError = property_exists($submissionInfo, 'error_code')
 							? __("plugins.generic.plagiarism.ithenticate.submission.error.{$submissionInfo->error_code}")
 							: __('plugins.generic.plagiarism.submission.status.ERROR');
+						if (in_array($submissionInfo->error_code, ['TOO_LITTLE_TEXT','CANNOT_EXTRACT_TEXT'])) {
+							$submissionFile->setData('ithenticateTextIssue', 1);
+							Repo::submissionFile()->edit($submissionFile, []);
+							$similaritySchedulingError = '';
+						}
 						break;
 				}
-
-				$this->generateUserNotification(
-					$request,
-					PKPNotification::NOTIFICATION_TYPE_ERROR,
-					__('plugins.generic.plagiarism.webhook.similarity.schedule.error', [
-						'submissionFileId' => $submissionFile->getId(),
-						'error' => $similaritySchedulingError,
-					])
-				);
+				if ($similaritySchedulingError != '') {
+					$this->generateUserNotification(
+						$request,
+						PKPNotification::NOTIFICATION_TYPE_ERROR,
+						__('plugins.generic.plagiarism.webhook.similarity.schedule.error', [
+							'submissionFileId' => $submissionFile->getId(),
+							'error' => $similaritySchedulingError,
+						])
+					);
+				}
 
 				return $this->triggerDataChangedEvent($submissionFile);
 			}

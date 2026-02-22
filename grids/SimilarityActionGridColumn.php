@@ -94,7 +94,18 @@ class SimilarityActionGridColumn extends GridColumn
 		if ($this->isSubmissionFileTypeRestricted($submissionFile)) {
 			return ['label' => __('plugins.generic.plagiarism.similarity.action.invalidFileType')];
 		}
+		if ($submissionFile->getData('ithenticateTextIssue') == true) {
+			$templateManager = TemplateManager::getManager();
+			$templateManager->assign([
+				'message' => __('plugins.generic.plagiarism.ithenticate.submission.error.notEnoughText'),
+			]);
 
+            return [
+				'label' => $templateManager->fetch(
+					$this->_plugin->getTemplateResource('message.tpl')
+				)
+			];
+		}
         // submission similarity score is available
         if ($submissionFile->getData('ithenticateSimilarityScheduled') == true &&
             $submissionFile->getData('ithenticateSimilarityResult')) {
@@ -229,7 +240,11 @@ class SimilarityActionGridColumn extends GridColumn
 
 			return $cellActions;
 		}
-        
+
+		if ($submissionFile->getData('ithenticateTextIssue') > 0 ) {
+			return $cellActions;
+		}
+
 		// Submission similarity report generation has not scheduled
 		if ($submissionFile->getData('ithenticateSimilarityScheduled') == false) {
 			$cellActions[] = new LinkAction(
