@@ -85,6 +85,9 @@ msgstr "The uploaded file requires a password in order to be opened."
 msgid "plugins.generic.plagiarism.ithenticate.submission.error.CORRUPT_FILE"
 msgstr "The uploaded file appears to be corrupt."
 
+msgid "plugins.generic.plagiarism.ithenticate.submission.error.notEnoughText"
+msgstr "Not enough text to generate report."
+
 msgid "plugins.generic.plagiarism.general.errorMessage"
 msgstr "Request processing error: {$errorMessage}"
 

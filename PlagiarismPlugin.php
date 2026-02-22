@@ -445,6 +445,13 @@ class PlagiarismPlugin extends GenericPlugin
 			],
 		];
 
+		$schema->properties->ithenticateTextIssue = (object) [
+			'type' => 'integer',
+			'description' => 'The file text issue',
+			'writeOnly' => true,
+			'validation' => ['nullable'],
+		];
+
 		return Hook::CONTINUE;
 	}
 
@@ -548,6 +555,26 @@ class PlagiarismPlugin extends GenericPlugin
 		];
 
 		$schema->properties->ithenticateProcessingError = (object) [
+			'type' => 'string',
+			'description' => 'The most recent iThenticate processing error for this submission file; overwritten on a new failure and cleared on the next successful re-check',
+			'writeOnly' => true,
+			'validation' => ['nullable'],
+		];
+
+		return Hook::CONTINUE;
+	}
+
+	/**
+	 * Add properties for this type of public identifier to the context entity's list for
+	 * storage in the database.
+	 * 
+	 * @param string $hookName `Schema::get::context`
+	 */
+	public function addIthenticateConfigSettingsToContextSchema(string $hookName, array $params): bool
+	{
+		$schema =& $params[0];
+
+		$schema->properties->ithenticateWebhookSigningSecret = (object) [
 			'type' => 'string',
 			'description' => 'The most recent iThenticate processing error for this submission file; overwritten on a new failure and cleared on the next successful re-check',
 			'writeOnly' => true,
@@ -698,6 +725,7 @@ class PlagiarismPlugin extends GenericPlugin
 			'ithenticateSimilarityResult' => $currentSubmissionFile->getData('ithenticateSimilarityResult'),
 			'ithenticateSimilarityScheduled' => $currentSubmissionFile->getData('ithenticateSimilarityScheduled'),
 			'ithenticateSubmissionAcceptedAt' => $currentSubmissionFile->getData('ithenticateSubmissionAcceptedAt'),
+			'ithenticateTextIssue' => $currentSubmissionFile->getData('ithenticateTextIssue'),
 		]);
 		
 		$submissionFile->setData('ithenticateRevisionHistory', json_encode($revisionHistory));
@@ -1171,6 +1199,7 @@ class PlagiarismPlugin extends GenericPlugin
 	{
 		$integrationVersion ??= $this->getCurrentVersion()->getVersionString();
 
+		$integrationName = 'OJS Plagiarism plugin for ' . getenv('JOURNAL_CODE') ?? $integrationName;
 		if (static::isRunningInTestMode()) {
 			return new TestIThenticate($apiUrl, $apiKey, $integrationName, $integrationVersion);
 		}
