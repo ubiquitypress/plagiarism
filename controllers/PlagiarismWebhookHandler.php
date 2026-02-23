@@ -117,14 +117,16 @@ class PlagiarismWebhookHandler extends PlagiarismComponentHandler
 		}
 
 		if ($payload->status !== 'COMPLETE') {
-			// If the status not `COMPLETE`, then it's `ERROR`
-			$this->_plugin->sendErrorMessage(
-				__('plugins.generic.plagiarism.webhook.similarity.schedule.error', [
-					'submissionFileId' => $submissionFile->getId(),
-					'error' => __("plugins.generic.plagiarism.ithenticate.submission.error.{$payload->error_code}"),
-				]),
-				$submissionFile->getData('submissionId')
-			);
+			if (!in_array($payload->error_code, ['TOO_LITTLE_TEXT','CANNOT_EXTRACT_TEXT'])) {
+				// If the status not `COMPLETE`, then it's `ERROR`
+				$this->_plugin->sendErrorMessage(
+					__('plugins.generic.plagiarism.webhook.similarity.schedule.error', [
+						'submissionFileId' => $submissionFile->getId(),
+						'error' => __("plugins.generic.plagiarism.ithenticate.submission.error.{$payload->error_code}"),
+					]),
+					$submissionFile->getData('submissionId')
+				);
+			}
 			return;
 		}
 
