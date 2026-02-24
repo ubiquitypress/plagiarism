@@ -8,25 +8,21 @@
  * Show the submission file's iThenticate score after plagiarism check completed
  *}
 
-<span class="plagiarism-similarity-score">
+<span class="plagiarism-similarity-message">
     <span>{$message|escape}</span>
 </span>
 
 <style>
-    span.plagiarism-similarity-score {
+    span.plagiarism-similarity-message {
         display: flex;
         align-items: center;
     }
 
-    span.plagiarism-similarity-score img {
+    span.plagiarism-similarity-message img {
         max-width: 100px;
     }
 
-    span.plagiarism-similarity-score span {
-        padding-left: 10px;
-        padding-bottom: 5px;
-        font-weight: 550;
-        font-size: 15px;
-        color: #006798;
+    span.plagiarism-similarity-message span {
+        color: #000000d6;
     }
 </style>
