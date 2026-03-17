@@ -91,3 +91,9 @@ msgstr ""
 
 msgid "plugins.generic.plagiarism.ithenticate.submission.error.PROCESSING_ERROR"
 msgstr "Det oppsto en uspesifisert feil under behandling av innleveringen."
+
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Alle filer som er tildelt denne komponenten vil bli sendt til iThenticate hvis automatisk innskudd er aktivert"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

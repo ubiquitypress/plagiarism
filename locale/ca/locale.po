@@ -92,3 +92,9 @@ msgstr "S'ha eliminat correctament el webhook d'iThenticate amb l'ID: {$webhookI
 #, fuzzy
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "No s'ha pogut eliminar el webhook d'iThenticate amb l'ID: {$webhookId} per al context ID: {$contextId}"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Tots els fitxers assignats a aquest component seran enviats a iThenticate si la dipositació automàtica està habilitada"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

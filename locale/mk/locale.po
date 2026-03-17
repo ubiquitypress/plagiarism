@@ -387,3 +387,9 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 #, fuzzy
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Сите датотеки доделени на оваа компонента ќе се пратат на iThenticate ако автоматското депозирање е овозможено"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

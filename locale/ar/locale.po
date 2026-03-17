@@ -277,3 +277,9 @@ msgstr "تم حذف الخطاف الإلكتروني لـ iThenticate بنجا�
 #, fuzzy
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "تعذر حذف الخطاف الإلكتروني لـ iThenticate بالمعرف: {$webhookId} لمعرف السياق: {$contextId}"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "سيتم إرسال جميع الملفات المسندة إلى هذا المكون إلى iThenticate إذا كان الإيداع الآلي مفعلاً"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

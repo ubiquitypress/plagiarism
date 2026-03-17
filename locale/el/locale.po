@@ -94,3 +94,9 @@ msgstr "Επιτυχής διαγραφή του webhook iThenticate με ID: {$
 #, fuzzy
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Αδυναμία διαγραφής του webhook iThenticate με ID: {$webhookId} για πλαίσιο ID: {$contextId}"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Όλα τα αρχεία που έχουν αντιστοιχηθεί σε αυτό το στοιχείο θα αποσταλούν στο iThenticate εάν η αυτόματη κατάθεση είναι ενεργοποιημένη"
+
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"
