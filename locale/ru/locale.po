@@ -1,11 +1,11 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-29 17:01+0000\n"
+"PO-Revision-Date: 2022-11-05 03:42+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/plugins/"
-"plagiarism/ru/>\n"
-"Language: ru\n"
+"plagiarism/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Отправляет все материалы в iThenticate для проверки на возможный плагиат."
 
 msgid "plugins.generic.plagiarism.displayName"
-msgstr "Модуль «Определитель плагиата iThenticate»"
+msgstr "Плагин «Определитель плагиата iThenticate»"
 
 msgid "plugins.generic.plagiarism.manager.settings.description"
 msgstr ""
@@ -46,22 +46,6 @@ msgid "plugins.generic.plagiarism.manager.settings.areForced"
 msgstr ""
 "Настройки iThenticate найдены в файле config.inc.php, поэтому заданные здесь "
 "настройки не будут использованы."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Невозможно выполнить проверку на плагиат в представленной работе, в которой не указан основной автор текущей публикации."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Ожидание планирования процесса создания отчета о сходстве."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Создание отчета о сходстве было успешно запланировано."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Ожидание генерации результата сходства."
 
 #, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
@@ -135,61 +119,8 @@ msgstr "Успешно удален вебхук iThenticate с ID: {$webhookId}
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Невозможно удалить вебхук iThenticate с ID: {$webhookId} для контекста ID: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Удалить вебхук для учетной записи iThenticate для указанного пути контекста"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Все файлы, назначенные этому компоненту, будут отправлены в iThenticate при включении автоматического депозита"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "Необходимы учетные данные API. Укажите --api-url и --api-key или --context для использования сохраненных учетных данных."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Вебхук не найден в API iThenticate для данного контекста. Нечего удалять."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Вебхук существует в API iThenticate (id: {$webhookId}, url: {$url}), но НЕ зарегистрирован в базе данных. Используйте 'update --include-api' для удаления и повторной регистрации или 'delete --include-api' для его удаления."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Вебхуки не найдены в API iThenticate для указанных учетных данных."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Вебхук уже существует в API iThenticate с id: {$webhookId} для URL: {$url}. Используйте 'update --include-api' для его замены."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Вебхук не найден в базе данных для данного контекста. Используйте --include-api для проверки также в API iThenticate."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Вебхук {$webhookId} не найден в API iThenticate (возможно, уже был удален). Очистка локальной записи в базе данных."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Удаленный вебхук {$deletedId} отличается от записи в базе данных ({$dbId}). Запись в базе данных сохранена."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Несоответствие ID вебхука: в базе данных {$dbId}, но в API iThenticate {$apiId} для URL {$url}. Используйте 'update --include-api' для устранения."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Примечание: проверенный вебхук {$validatedId} (из API) отличается от записи в базе данных ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin обновил своё лицензионное соглашение (EULA). Пожалуйста, повторите попытку, чтобы ознакомиться с новыми условиями и принять их."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

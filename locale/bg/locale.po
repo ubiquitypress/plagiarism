@@ -141,9 +141,19 @@ msgstr ""
 msgid "plugins.generic.plagiarism.action.submitSubmission.success"
 msgstr "Файлът за изпращане бе качен успешно в iThenticate."
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin актуализира своето лицензионно споразумение (EULA). Моля, опитайте отново, за да прегледате и приемете новите условия."
+msgid "plugins.generic.plagiarism.webhook.headers.missing"
+msgstr "Липсват необходимите водачи на iThenticate webhook"
+
+msgid "plugins.generic.plagiarism.webhook.event.invalid"
+msgstr "Невалиден тип събитие на iThenticate webhook {$event}"
+
+msgid "plugins.generic.plagiarism.webhook.signature.invalid"
+msgstr "Невалиден подпис на iThenticate webhook"
+
+msgid "plugins.generic.plagiarism.webhook.submissionFileAssociationWithContext.invalid"
+msgstr ""
+"Даденият идентификатор на файл за изпращане: {$submissionFileId} не "
+"съществува за идентификатор: {$contextId}"
 
 msgid "plugins.generic.plagiarism.webhook.similarity.schedule.previously"
 msgstr ""
@@ -251,6 +261,11 @@ msgstr ""
 msgid "plugins.generic.plagiarism.webhook.configuration.missing"
 msgstr "iThenticate webhook не е конфигуриран за идентификатор {$contextId}."
 
+msgid "plugins.generic.plagiarism.webhook.submissionId.invalid"
+msgstr ""
+"Невалиден iThenticate идентификатор на подаване {$submissionUuid}, даден за "
+"webhook събитие {$event}"
+
 msgid "plugins.generic.plagiarism.webhook.similarity.schedule.error"
 msgstr ""
 "Не може да се планира генерирането на отчет за сходство за файл с "
@@ -261,7 +276,6 @@ msgstr ""
 "Неуспешно планиране на процеса на генериране на отчет за сходство за файл с "
 "идентификатор {$submissionFileId}"
 
-#, fuzzy
 msgid "plugins.generic.plagiarism.stamped.eula.missing"
 msgstr ""
 "Липсва заверената информация за EULA за подаването или подаващия потребител."
@@ -320,22 +334,6 @@ msgstr "EULA трябва да бъде потвърдено, преди да п
 
 msgid "plugins.generic.plagiarism.submission.eula.accept.button.title"
 msgstr "Потвърждавам и продължавам със следваща стъпка"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Не може да се извърши проверка за плагиатство на изпратено без основен автор за текущата публикация."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Изчаква се планиране на процеса на генериране на отчет за сходство."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Генерирането на отчет за сходство е планирано успешно."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Изчакване за генериране на резултат за сходство."
 
 #, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
@@ -409,53 +407,8 @@ msgstr "Успешно изтрит webhook за iThenticate с ID: {$webhookId}
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Не може да се изтрие webhook за iThenticate с ID: {$webhookId} за контекст ID: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Изтриване на webhook за акаунт в iThenticate за зададен контекстен път"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Всички файлове, приписани на този компонент, ще бъдат изпратени на iThenticate, ако е активирано автоматичното депозиране"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "Необходими са API идентификационни данни. Предоставете --api-url и --api-key, или --context за използване на съхранените идентификационни данни."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Не е намерен webhook в API на iThenticate за този контекст. Няма какво да се изтрие."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook съществува в API на iThenticate (id: {$webhookId}, url: {$url}), но НЕ е в базата данни. Използвайте 'update --include-api' за изтриване и повторна регистрация, или 'delete --include-api' за премахване."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Не са намерени webhooks в API на iThenticate за предоставените идентификационни данни."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Webhook вече съществува в API на iThenticate с id: {$webhookId} за URL: {$url}. Използвайте 'update --include-api' за замяна."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Не е намерен webhook в базата данни за този контекст. Използвайте --include-api за проверка и в API на iThenticate."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} не е намерен в API на iThenticate (може вече да е изтрит). Изчистване на локалния запис в базата данни."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Изтритият webhook {$deletedId} се различава от записа в базата данни ({$dbId}). Записът в базата данни е запазен."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Несъответствие на ID на webhook: базата данни има {$dbId}, но API на iThenticate има {$apiId} за URL {$url}. Използвайте 'update --include-api' за разрешаване."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Забележка: Валидираният webhook {$validatedId} (от API) се различава от записа в базата данни ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

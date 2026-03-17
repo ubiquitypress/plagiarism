@@ -114,22 +114,6 @@ msgid "plugins.generic.plagiarism.similarityCheck.settings.title"
 msgstr "Käsikirjoituksen samankaltaisuustarkistuksen asetukset"
 
 #, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Ei voida suorittaa plagiointitarkistusta lähetykselle, jolla ei ole nykyisen julkaisun ensisijaista kirjoittajaa."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Odotetaan samankaltaisuusraportin luontiprosessin ajoittamista."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Samankaltaisuusraportin luominen on ajoitettu onnistuneesti."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Odotetaan samankaltaisuustuloksen luomista."
-
-#, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
 msgstr "Puuttuu vaadittu iThenticate-palvelun API-osoite ja API-avain."
 
@@ -201,61 +185,8 @@ msgstr "iThenticate-webhook poistettu onnistuneesti ID:llä: {$webhookId} kontek
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "iThenticate-webhookia ei voitu poistaa ID:llä: {$webhookId} kontekstille ID: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Poista webhook iThenticate-tililtä annetulle kontekstipolulle"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Kaikki tälle komponentille määritetyt tiedostot lähetetään iThenticatelle, jos automaattinen talletus on käytössä"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "API-tunnistetiedot vaaditaan. Anna --api-url ja --api-key, tai --context käyttääksesi tallennettuja tunnistetietoja."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Webhookia ei löytynyt iThenticate-rajapinnasta tälle kontekstille. Ei poistettavaa."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook on olemassa iThenticate-rajapinnassa (id: {$webhookId}, url: {$url}), mutta sitä EI ole tietokannassa. Käytä 'update --include-api' poistaaksesi ja rekisteröidäksesi uudelleen, tai 'delete --include-api' poistaaksesi sen."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Webhookeja ei löytynyt iThenticate-rajapinnasta annetuilla tunnistetiedoilla."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Webhook on jo olemassa iThenticate-rajapinnassa ID:llä: {$webhookId} URL-osoitteelle: {$url}. Käytä 'update --include-api' korvataksesi sen."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Webhookia ei löytynyt tietokannasta tälle kontekstille. Käytä --include-api tarkistaaksesi myös iThenticate-rajapinnan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhookia {$webhookId} ei löytynyt iThenticate-rajapinnasta (se on mahdollisesti jo poistettu). Siivotaan paikallinen tietokantamerkintä."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Poistettu webhook {$deletedId} eroaa tietokannan merkinnästä ({$dbId}). Tietokannan merkintä säilytetty."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Webhook-ID:n ristiriita: tietokannassa on {$dbId}, mutta iThenticate-rajapinnassa on {$apiId} URL-osoitteelle {$url}. Käytä 'update --include-api' ratkaistaksesi."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Huomio: Vahvistettu webhook {$validatedId} (rajapinnasta) eroaa tietokannan merkinnästä ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin on päivittänyt EULA-ehtonsa. Yritä uudelleen tarkistaaksesi ja hyväksyäksesi uudet ehdot."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

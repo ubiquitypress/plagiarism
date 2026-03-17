@@ -220,12 +220,27 @@ msgstr "Uspešno posodobljen iThenticate rezultat."
 msgid "plugins.generic.plagiarism.action.submitSubmission.success"
 msgstr "Datoteka je bila uspšno naložena na iThenticate."
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin je posodobil svojo licenčno pogodbo (EULA). Prosimo, poskusite znova za pregled in sprejem novih pogojev."
-
 msgid "plugins.generic.plagiarism.webhook.configuration.missing"
 msgstr "iThenticate spletni dostop ni nastavljen za kontekst id {$contextId} ."
+
+msgid "plugins.generic.plagiarism.webhook.headers.missing"
+msgstr "Manjka glava obvezenega spletnega dostopa do iThenticate-a"
+
+msgid "plugins.generic.plagiarism.webhook.event.invalid"
+msgstr "Neveljaven tip dogodka iThenticate spletnega dostopa {$event}"
+
+msgid "plugins.generic.plagiarism.webhook.signature.invalid"
+msgstr "Neveljaven podpis iThenticate spletnega dostopa"
+
+msgid "plugins.generic.plagiarism.webhook.submissionId.invalid"
+msgstr ""
+"Neveljaven iThenticate id prispevka {$submissionUuid} za spletni dogodek "
+"{$event}"
+
+msgid "plugins.generic.plagiarism.webhook.submissionFileAssociationWithContext.invalid"
+msgstr ""
+"Podani id datoteke : {$submissionFileId} ne obstaja za kontekst id : "
+"{$contextId}"
 
 msgid "plugins.generic.plagiarism.webhook.similarity.schedule.error"
 msgstr ""
@@ -254,7 +269,6 @@ msgstr "Prišlo je do napake med obdelavo oddajanja."
 msgid "plugins.generic.plagiarism.submission.status.PROCESSING"
 msgstr "Vsebina datoteke je bila naložena in oddaja je v procesu obdelave"
 
-#, fuzzy
 msgid "plugins.generic.plagiarism.stamped.eula.missing"
 msgstr "Strinjanje z EULA manjka za prispevek ali uporabnika."
 
@@ -295,22 +309,6 @@ msgid "plugins.generic.plagiarism.ithenticate.file.upload.failed"
 msgstr ""
 "Nalaganje datoteke na iThenticate za datoteko id : {$submissionFileId} ni "
 "bilo uspešno"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Preverjanja plagiatorstva ni mogoče zagnati pri predložitvi brez primarnega avtorja za trenutno objavo."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Čakanje na načrtovanje postopka ustvarjanja poročila o podobnosti."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Generiranje poročila o podobnosti je bilo uspešno načrtovano."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Čakanje na generiranje rezultata podobnosti."
 
 #, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
@@ -384,53 +382,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Izbriši webhook za iThenticate račun za dano pot konteksta"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Vse datoteke, dodeljene tej komponenti, bodo poslane v iThenticate, če je avtomatski depozit omogočen"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "Zahtevane so API poverilnice. Podajte --api-url in --api-key ali --context za uporabo shranjenih poverilnic."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Za ta kontekst v iThenticate API ni bil najden noben webhook. Ni česa za izbrisati."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook obstaja v iThenticate API (id: {$webhookId}, url: {$url}), vendar NI v podatkovni bazi. Uporabite 'update --include-api' za izbris in ponovno registracijo ali 'delete --include-api' za odstranitev."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Za podane poverilnice v iThenticate API ni bil najden noben webhook."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Webhook že obstaja v iThenticate API z id: {$webhookId} za URL: {$url}. Uporabite 'update --include-api' za zamenjavo."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "V podatkovni bazi za ta kontekst ni bil najden noben webhook. Uporabite --include-api za preverjanje tudi v iThenticate API."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} ni bil najden v iThenticate API (morda je bil že izbrisan). Čiščenje lokalnega zapisa v podatkovni bazi."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Izbrisan webhook {$deletedId} se razlikuje od zapisa v podatkovni bazi ({$dbId}). Zapis v podatkovni bazi je ohranjen."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Neujemanje ID webhooka: v podatkovni bazi je {$dbId}, vendar iThenticate API ima {$apiId} za URL {$url}. Uporabite 'update --include-api' za razrešitev."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Opomba: Potrjen webhook {$validatedId} (iz API) se razlikuje od zapisa v podatkovni bazi ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

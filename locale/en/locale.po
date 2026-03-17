@@ -202,11 +202,23 @@ msgstr "Unable to upload the submission file to iThenticate. Note that submissio
 msgid "plugins.generic.plagiarism.action.submitSubmission.success"
 msgstr "Successfully uploaded the submission file to iThenticate."
 
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin has updated its EULA. Please try again to review and accept the new terms."
-
 msgid "plugins.generic.plagiarism.webhook.configuration.missing"
 msgstr "iThenticate webhook not configured for context id {$contextId} ."
+
+msgid "plugins.generic.plagiarism.webhook.headers.missing"
+msgstr "Missing required iThenticate webhook headers"
+
+msgid "plugins.generic.plagiarism.webhook.event.invalid"
+msgstr "Invalid iThenticate webhook event type {$event}"
+
+msgid "plugins.generic.plagiarism.webhook.signature.invalid"
+msgstr "Invalid iThenticate webhook signature"
+
+msgid "plugins.generic.plagiarism.webhook.submissionId.invalid"
+msgstr "Invalid iThenticate submission id {$submissionUuid} given for webhook event {$event}"
+
+msgid "plugins.generic.plagiarism.webhook.submissionFileAssociationWithContext.invalid"
+msgstr "The given submission file id : {$submissionFileId} does not exists for context id : {$contextId}"
 
 msgid "plugins.generic.plagiarism.webhook.similarity.schedule.error"
 msgstr "Unable to schedule the similarity report generation for file id {$submissionFileId} with error : {$error}"
@@ -218,7 +230,9 @@ msgid "plugins.generic.plagiarism.webhook.similarity.schedule.failure"
 msgstr "Failed to schedule the similarity report generation process for submission file id {$submissionFileId}"
 
 msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
+msgstr ""
+"The stamped EULA information is missing for the submission or submitting "
+"user."
 
 msgid "plugins.generic.plagiarism.ithenticate.upload.complete.failed"
 msgstr "Unable to complete the uploading of all files at iThenticate service for plagiarism check."
@@ -241,18 +255,6 @@ msgstr "File contents have been uploaded and the submission is still being proce
 msgid "plugins.generic.plagiarism.submission.status.ERROR"
 msgstr "An error occurred during submission processing."
 
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Can not run plagiarism check on a submission with no primary author for current publication."
-
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Waiting to schedule similarity report generation process."
-
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Similarity report generation has been scheduled successfully."
-
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Waiting to generate similarity result."
-
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
 msgstr "Missing required iThenticate service access API URL and API key."
 
@@ -270,12 +272,6 @@ msgstr "Validate webhooks for iThenticate account for a given context path"
 
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.list.description"
 msgstr "List webhooks for iThenticate account for all available and enabled contexts"
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.reconcile.description"
-msgstr "Consolidate to one site webhook per credential scope and clean up legacy per-context webhooks (supports --dry-run and --prune)"
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.work.description"
-msgstr "Simulate iThenticate webhooks for local testing by polling pending files (test mode only, 10 cycles default)"
 
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.usage.description"
 msgstr "Display the usage parameters."
@@ -313,41 +309,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Delete the webhook for iThenticate account for a given context path"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "All files assigned to this component will be sent to iThenticate if automated deposit is enabled"
 
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "API credentials required. Provide --api-url and --api-key, or --context to use stored credentials."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "No webhook found at iThenticate API for this context. Nothing to delete."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook exists at iThenticate API (id: {$webhookId}, url: {$url}) but is NOT in the database. Use 'update --include-api' to delete and re-register, or 'delete --include-api' to remove it."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "No webhooks found at iThenticate API for the provided credentials."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "A webhook already exists at iThenticate API with id: {$webhookId} for URL: {$url}. Use 'update --include-api' to replace it."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "No webhook found in the database for this context. Use --include-api to also check the iThenticate API."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} was not found at iThenticate API (may have been deleted already). Cleaning up local database record."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Deleted webhook {$deletedId} differs from the database record ({$dbId}). Database record preserved."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Webhook ID mismatch: database has {$dbId} but iThenticate API has {$apiId} for URL {$url}. Use 'update --include-api' to resolve."
-
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Note: Validated webhook {$validatedId} (from API) differs from database record ({$dbId})."
-
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

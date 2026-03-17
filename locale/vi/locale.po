@@ -12,31 +12,15 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.plagiarism.displayName"
-msgstr "Plugin Kiểm Tra Đạo Văn iThenticate"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.errorMessage"
-msgstr "Lỗi xử lý iThenticate cho bài nộp {$submissionId}: {$errorMessage}"
+msgstr "Plugin phát hiện đạo văn của iThenticate"
 
 msgid "plugins.generic.plagiarism.description"
 msgstr ""
 "Gửi tất cả các bài gửi cho iThenticate để được kiểm tra khả năng đạo văn."
 
 #, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Không thể kiểm tra đạo văn đối với bài nộp không có tác giả chính cho ấn phẩm hiện tại."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Đang chờ để lên lịch cho quá trình tạo báo cáo tương đồng."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Đã lên lịch tạo báo cáo tương đồng thành công."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Đang chờ để tạo kết quả tương tự."
+msgid "plugins.generic.plagiarism.errorMessage"
+msgstr "Lỗi xử lý iThenticate cho bài nộp {$submissionId}: {$errorMessage}"
 
 #, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
@@ -110,61 +94,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Xóa webhook của tài khoản iThenticate cho đường dẫn ngữ cảnh đã cho"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Tất cả các tập tin được gán cho thành phần này sẽ được gửi đến iThenticate nếu tính năng nộp tệp tự động được bật"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "Cần thông tin xác thực API. Cung cấp --api-url và --api-key, hoặc --context để sử dụng thông tin xác thực đã lưu."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Không tìm thấy webhook nào tại iThenticate API cho ngữ cảnh này. Không có gì để xóa."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook tồn tại tại iThenticate API (id: {$webhookId}, url: {$url}) nhưng KHÔNG có trong cơ sở dữ liệu. Sử dụng 'update --include-api' để xóa và đăng ký lại, hoặc 'delete --include-api' để xóa nó."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Không tìm thấy webhook nào tại iThenticate API cho thông tin xác thực đã cung cấp."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Một webhook đã tồn tại tại iThenticate API với id: {$webhookId} cho URL: {$url}. Sử dụng 'update --include-api' để thay thế nó."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Không tìm thấy webhook nào trong cơ sở dữ liệu cho ngữ cảnh này. Sử dụng --include-api để kiểm tra cả iThenticate API."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Không tìm thấy webhook {$webhookId} tại iThenticate API (có thể đã bị xóa). Đang dọn dẹp bản ghi cơ sở dữ liệu cục bộ."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Webhook đã xóa {$deletedId} khác với bản ghi cơ sở dữ liệu ({$dbId}). Bản ghi cơ sở dữ liệu được giữ nguyên."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "ID webhook không khớp: cơ sở dữ liệu có {$dbId} nhưng iThenticate API có {$apiId} cho URL {$url}. Sử dụng 'update --include-api' để giải quyết."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Lưu ý: Webhook đã xác thực {$validatedId} (từ API) khác với bản ghi cơ sở dữ liệu ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin đã cập nhật EULA. Vui lòng thử lại để xem xét và chấp nhận các điều khoản mới."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

@@ -177,6 +177,7 @@ class PlagiarismPlugin extends GenericPlugin
 				return $success;
 			}
 		}
+		Hook::add('TemplateResource::getFilename', [$this, 'overridePluginTemplates']);
 
 		// The context webhook id/secret are written by the very settings save that first stores the
 		// iThenticate credentials — at which point service access is not yet "available" and the gate
@@ -216,6 +217,12 @@ class PlagiarismPlugin extends GenericPlugin
 		Hook::add('TemplateManager::display', $this->addEulaAcceptanceConfirmation(...));
 
 		$this->addApiRoutes();
+
+		// Genre form hooks for iThenticate auto-deposit setting
+		// NB: Form.php applies strtolower_codesafe() to the full hook name, so these must be all-lowercase
+		Hook::add('genreform::display', [$this, 'genreFormInitData']);
+		Hook::add('genreform::readuservars', [$this, 'genreFormReadUserVars']);
+		Hook::add('genreform::execute', [$this, 'genreFormExecute']);
 
 		return $success;
 	}
@@ -385,7 +392,6 @@ class PlagiarismPlugin extends GenericPlugin
 	 */
 	public function getCanEnable($contextId = null)
 	{
-		// return !Config::getVar('ithenticate', 'ithenticate');
 		return true;
 	}
 
@@ -394,7 +400,6 @@ class PlagiarismPlugin extends GenericPlugin
 	 */
 	public function getCanDisable($contextId = null)
 	{
-		// return !Config::getVar('ithenticate', 'ithenticate');
 		return true;
 	}
 
@@ -418,6 +423,89 @@ class PlagiarismPlugin extends GenericPlugin
 		}
 
 		return parent::getEnabled($contextId) || Config::getVar('ithenticate', 'ithenticate');
+	}
+
+    /**
+     * @copydoc Plugin::_overridePluginTemplates()
+     */
+    public function overridePluginTemplates(string $hookName, array &$args): bool
+    {
+        return parent::_overridePluginTemplates($hookName, $args);
+    }
+
+	/**
+	 * Load the iThenticate auto-deposit setting when the genre form initialises.
+	 *
+	 * @param string $hookName `genreform::initData`
+	 */
+	public function genreFormInitData(string $hookName, array $params): bool
+	{
+		$form =& $params[0]; /** @var \PKP\controllers\grid\settings\genre\form\GenreForm $form */
+
+		$genreId = $form->getGenreId();
+		$request = Application::get()->getRequest();
+		$contextId = $request->getContext()?->getId() ?? 0;
+
+		$ithenticateAutoDeposit = false;
+		if ($genreId) {
+			$ithenticateAutoDeposit = (bool) $this->getSetting($contextId, 'ithenticateAutoDeposit_genre_' . $genreId);
+		}
+
+		$form->setData('ithenticateAutoDeposit', $ithenticateAutoDeposit);
+
+		return Hook::CONTINUE;
+	}
+
+	/**
+	 * Add the ithenticateAutoDeposit field to the list of user vars read from the form.
+	 *
+	 * @param string $hookName `genreform::readUserVars`
+	 */
+	public function genreFormReadUserVars(string $hookName, array $params): bool
+	{
+		$form =& $params[0]; /** @var \PKP\controllers\grid\settings\genre\form\GenreForm $form */
+		$vars =& $params[1]; /** @var array $vars */
+
+		$vars[] = 'ithenticateAutoDeposit';
+
+		return Hook::CONTINUE;
+	}
+
+	/**
+	 * Save the iThenticate auto-deposit setting when the genre form is executed.
+	 *
+	 * @param string $hookName `genreform::execute`
+	 */
+	public function genreFormExecute(string $hookName, array $params): bool
+	{
+		$form =& $params[0]; /** @var \PKP\controllers\grid\settings\genre\form\GenreForm $form */
+
+		$genreId = $form->getGenreId();
+		if (!$genreId) {
+			return Hook::CONTINUE;
+		}
+
+		$request = Application::get()->getRequest();
+		$contextId = $request->getContext()?->getId() ?? 0;
+
+		$this->updateSetting(
+			$contextId,
+			'ithenticateAutoDeposit_genre_' . $genreId,
+			(bool) $form->getData('ithenticateAutoDeposit')
+		);
+
+		return Hook::CONTINUE;
+	}
+
+	/**
+	 * Check whether a genre has the iThenticate auto-deposit setting enabled.
+	 *
+	 * @param int $contextId  The context (journal) ID
+	 * @param int $genreId    The genre ID to check
+	 */
+	public function isGenreAutoDepositEnabled(int $contextId, int $genreId): bool
+	{
+		return (bool) $this->getSetting($contextId, 'ithenticateAutoDeposit_genre_' . $genreId);
 	}
 
 	/**
@@ -830,6 +918,12 @@ class PlagiarismPlugin extends GenericPlugin
 
 		try {
 			foreach($submissionFiles as $submissionFile) { /** @var SubmissionFile $submissionFile */
+				// Skip files whose genre does not have iThenticate auto-deposit enabled
+				$genreId = $submissionFile->getData('genreId');
+				if ($genreId && !$this->isGenreAutoDepositEnabled($context->getId(), $genreId)) {
+					continue;
+				}
+
 				if (!$this->createNewSubmission($request, $user, $submission, $submissionFile, $ithenticate)) {
 					return false;
 				}

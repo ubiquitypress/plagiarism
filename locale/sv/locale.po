@@ -22,22 +22,6 @@ msgid "plugins.generic.plagiarism.errorMessage"
 msgstr "iThenticate bearbetningsfel för inlämning {$submissionId}: {$errorMessage}"
 
 #, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Kan inte köra plagiatkontroll på en inlämning utan huvudförfattare för aktuell publicering"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Väntar på att schemalägga genereringsprocessen för likhetsrapporten."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Genereringen av likhetsrapporten har schemalagts."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Väntar på att generera likhetsresultat."
-
-#, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
 msgstr "Missing required iThenticate service access API URL and API key."
 
@@ -109,61 +93,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Ta bort webhook för iThenticate-kontot för en given kontextsökväg"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Alla filer som tilldelats denna komponent kommer att skickas till iThenticate om automatisk inlämning är aktiverad"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "API-uppgifter krävs. Ange --api-url och --api-key, eller --context för att använda lagrade uppgifter."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Ingen webhook hittades i iThenticate API för denna kontext. Inget att ta bort."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook finns i iThenticate API (id: {$webhookId}, url: {$url}) men finns INTE i databasen. Använd 'update --include-api' för att ta bort och omregistrera, eller 'delete --include-api' för att ta bort den."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Inga webhooks hittades i iThenticate API för de angivna uppgifterna."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "En webhook finns redan i iThenticate API med id: {$webhookId} för URL: {$url}. Använd 'update --include-api' för att ersätta den."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Ingen webhook hittades i databasen för denna kontext. Använd --include-api för att även kontrollera iThenticate API."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} hittades inte i iThenticate API (kan redan ha tagits bort). Rensar lokal databaspost."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Borttagen webhook {$deletedId} skiljer sig från databasposten ({$dbId}). Databasposten bevarades."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Webhook-ID stämmer inte överens: databasen har {$dbId} men iThenticate API har {$apiId} för URL {$url}. Använd 'update --include-api' för att lösa det."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Observera: Validerad webhook {$validatedId} (från API) skiljer sig från databasposten ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin har uppdaterat sin EULA. Försök igen för att granska och acceptera de nya villkoren."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

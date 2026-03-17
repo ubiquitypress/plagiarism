@@ -23,22 +23,6 @@ msgid "plugins.generic.plagiarism.errorMessage"
 msgstr "iThenticate დამუშავების შეცდომა წარდგენისთვის {$submissionId}: {$errorMessage}"
 
 #, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "არ შეიძლება პლაგიატის შემოწმება წარდგენის გარეშე, რომელსაც არ აქვს ძირითადი ავტორი მიმდინარე პუბლიკაციისთვის"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "მსგავსების ანგარიშის გენერირების პროცესის დაგეგმვის მოლოდინში."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "მსგავსების ანგარიშის გენერირება წარმატებით დაიგეგმა."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "ველოდებით მსგავსების შედეგის გენერირებას."
-
-#, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
 msgstr "Missing required iThenticate service access API URL and API key."
 
@@ -110,61 +94,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Webhook-ის წაშლა iThenticate ანგარიშისთვის მოცემული კონტექსტის ბილიკით"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "ამ კომპონენტზე შეთავაზებული ყველა ფაილი იქნება გაგზავნილი iThenticate-ზე, თუ ავტომატური დეპოზიტი ჩართულია"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "საჭიროა API სერთიფიკატები. მიუთითეთ --api-url და --api-key, ან --context შენახული სერთიფიკატების გამოსაყენებლად."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "ამ კონტექსტისთვის iThenticate API-ში webhook ვერ მოიძებნა. წასაშლელი არაფერია."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook არსებობს iThenticate API-ში (id: {$webhookId}, url: {$url}), მაგრამ არ არის მონაცემთა ბაზაში. გამოიყენეთ 'update --include-api' წასაშლელად და ხელახლა დასარეგისტრირებლად, ან 'delete --include-api' მის მოსაშორებლად."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "მითითებული სერთიფიკატებისთვის iThenticate API-ში webhook-ები ვერ მოიძებნა."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Webhook უკვე არსებობს iThenticate API-ში id-ით: {$webhookId} URL-ისთვის: {$url}. გამოიყენეთ 'update --include-api' მის შესაცვლელად."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "ამ კონტექსტისთვის მონაცემთა ბაზაში webhook ვერ მოიძებნა. გამოიყენეთ --include-api iThenticate API-ის შესამოწმებლადაც."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} ვერ მოიძებნა iThenticate API-ში (შესაძლოა უკვე წაშლილია). ლოკალური მონაცემთა ბაზის ჩანაწერის გასუფთავება."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "წაშლილი webhook {$deletedId} განსხვავდება მონაცემთა ბაზის ჩანაწერისგან ({$dbId}). მონაცემთა ბაზის ჩანაწერი შენარჩუნებულია."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Webhook ID-ის შეუსაბამობა: მონაცემთა ბაზაში არის {$dbId}, მაგრამ iThenticate API-ში არის {$apiId} URL-ისთვის {$url}. გამოიყენეთ 'update --include-api' გადასაჭრელად."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "შენიშვნა: ვალიდირებული webhook {$validatedId} (API-დან) განსხვავდება მონაცემთა ბაზის ჩანაწერისგან ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin-მა განაახლა თავისი EULA. გთხოვთ, კიდევ სცადოთ ახალი პირობების გადახედვა და მიღება."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

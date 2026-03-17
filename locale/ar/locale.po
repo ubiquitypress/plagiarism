@@ -207,22 +207,6 @@ msgstr ""
 "تطابقات التشابه التي تقل عن المقدار المحدد من الكلمات لن تعتبر محتوى مشابهًا"
 
 #, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "لا يمكن تشغيل فحص الانتحال على إرسال ليس له مؤلف رئيسي للنشر الحالي"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "في انتظار جدولة عملية إنشاء تقرير التشابه"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "تمت جدولة إنشاء تقرير التشابه بنجاح"
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "في انتظار إنشاء نتيجة التشابه"
-
-#, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
 msgstr "عنوان رابط واجهة برمجة التطبيق ومفتاح واجهة برمجة التطبيق للوصول إلى خدمة iThenticate مطلوبان."
 
@@ -294,61 +278,8 @@ msgstr "تم حذف الخطاف الإلكتروني لـ iThenticate بنجا�
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "تعذر حذف الخطاف الإلكتروني لـ iThenticate بالمعرف: {$webhookId} لمعرف السياق: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "حذف الخطاف الإلكتروني لحساب iThenticate لمسار سياق محدد"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "سيتم إرسال جميع الملفات المسندة إلى هذا المكون إلى iThenticate إذا كان الإيداع الآلي مفعلاً"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "بيانات اعتماد واجهة برمجة التطبيق مطلوبة. قم بتوفير --api-url و --api-key، أو --context لاستخدام بيانات الاعتماد المخزنة."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "لم يتم العثور على خطاف إلكتروني في واجهة برمجة التطبيق لـ iThenticate لهذا السياق. لا يوجد شيء لحذفه."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "يوجد خطاف إلكتروني في واجهة برمجة التطبيق لـ iThenticate (المعرف: {$webhookId}، الرابط: {$url}) ولكنه غير موجود في قاعدة البيانات. استخدم 'update --include-api' لحذفه وإعادة تسجيله، أو 'delete --include-api' لإزالته."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "لم يتم العثور على خطافات إلكترونية في واجهة برمجة التطبيق لـ iThenticate لبيانات الاعتماد المقدمة."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "يوجد خطاف إلكتروني بالفعل في واجهة برمجة التطبيق لـ iThenticate بالمعرف: {$webhookId} للرابط: {$url}. استخدم 'update --include-api' لاستبداله."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "لم يتم العثور على خطاف إلكتروني في قاعدة البيانات لهذا السياق. استخدم --include-api للتحقق أيضًا من واجهة برمجة التطبيق لـ iThenticate."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "الخطاف الإلكتروني {$webhookId} غير موجود في واجهة برمجة التطبيق لـ iThenticate (ربما تم حذفه بالفعل). جارٍ تنظيف سجل قاعدة البيانات المحلية."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "الخطاف الإلكتروني المحذوف {$deletedId} يختلف عن سجل قاعدة البيانات ({$dbId}). تم الحفاظ على سجل قاعدة البيانات."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "عدم تطابق معرف الخطاف الإلكتروني: قاعدة البيانات تحتوي على {$dbId} ولكن واجهة برمجة التطبيق لـ iThenticate تحتوي على {$apiId} للرابط {$url}. استخدم 'update --include-api' لحل المشكلة."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "ملاحظة: الخطاف الإلكتروني الذي تم التحقق منه {$validatedId} (من واجهة برمجة التطبيق) يختلف عن سجل قاعدة البيانات ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "قامت Turnitin بتحديث اتفاقية ترخيص المستخدم النهائي. يُرجى المحاولة مرة أخرى لمراجعة الشروط الجديدة وقبولها."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.stamped.eula.missing"
-msgstr "The iThenticate EULA has not been accepted for this submission. Open the file's actions, accept the EULA, then submit for the plagiarism check."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"

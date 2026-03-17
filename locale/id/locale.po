@@ -179,12 +179,17 @@ msgstr "Pemeriksaan plagiarisme tidak tersedia"
 msgid "plugins.generic.plagiarism.action.submitSubmission.success"
 msgstr "Berhasil mengunggah file naskah ke iThenticate."
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.eulaUpdated"
-msgstr "Turnitin telah memperbarui EULA-nya. Silakan coba lagi untuk meninjau dan menyetujui persyaratan baru."
-
 msgid "plugins.generic.plagiarism.webhook.configuration.missing"
 msgstr "Webhook iThenticate tidak dikonfigurasi untuk konteks id {$contextId} ."
+
+msgid "plugins.generic.plagiarism.webhook.headers.missing"
+msgstr "Header webhook iThenticate yang diperlukan tidak dapat ditemukan"
+
+msgid "plugins.generic.plagiarism.webhook.event.invalid"
+msgstr "Tipe event webhook iThenticate {$event} tidak valid"
+
+msgid "plugins.generic.plagiarism.webhook.signature.invalid"
+msgstr "Kode unik webhook iThenticate tidak valid"
 
 msgid "plugins.generic.plagiarism.similarity.action.generateReport.confirmation"
 msgstr "Apakah anda yakin untuk menampilkan laporan Plagiarisme?"
@@ -242,6 +247,11 @@ msgstr "File telah diunggah dan pengiriman masih dalam proses"
 msgid "plugins.generic.plagiarism.similarity.action.column.score.title"
 msgstr "Skor plagiarisme/Tindakan"
 
+msgid "plugins.generic.plagiarism.webhook.submissionId.invalid"
+msgstr ""
+"ID pengiriman iThenticate {$submissionUuid} yang tidak valid diberikan untuk "
+"webhook event {$event}"
+
 msgid "plugins.generic.plagiarism.similarity.score.column.overall_match_percentage"
 msgstr "Persentase Kecocokan Secara Keseluruhan"
 
@@ -249,6 +259,11 @@ msgid "plugins.generic.plagiarism.action.submitSubmission.error"
 msgstr ""
 "Tidak dapat mengunggah file naskah ke iThenticate. Harap diperhatikan bahwa "
 "ukuran maksimal file naskah adalah 100 MB."
+
+msgid "plugins.generic.plagiarism.webhook.submissionFileAssociationWithContext.invalid"
+msgstr ""
+"File ID pengiriman yang diberikan : {$submissionFileId} tidak ada untuk "
+"konteks ID : {$contextId}"
 
 msgid "plugins.generic.plagiarism.similarity.action.generateReport.title"
 msgstr "Jadwalkan Laporan Plagiarisme"
@@ -267,7 +282,6 @@ msgstr ""
 "Gagal menjadwalkan proses pembuatan laporan kesamaan untuk naskah file id "
 "{$submissionFileId}"
 
-#, fuzzy
 msgid "plugins.generic.plagiarism.stamped.eula.missing"
 msgstr ""
 "Informasi EULA yang dicap tidak ada pada saat pengiriman atau pengguna yang "
@@ -296,22 +310,6 @@ msgid "plugins.generic.plagiarism.manager.settings.description"
 msgstr ""
 "Pengaturan akun yang digunakan untuk mengunggah naskah ke iThenticate. "
 "Hubungi administrator iThenticate anda untuk keterangan lebih lanjut."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.action.submitSubmission.missingPrimaryAuthor.error"
-msgstr "Can not run plagiarism check on a submission with no primary author for current publication."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnReportSchedule"
-msgstr "Menunggu untuk menjadwalkan proses pembuatan laporan kesamaan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.reportScheduleCompletd"
-msgstr "Pembuatan laporan kesamaan telah berhasil dijadwalkan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.file.statusText.waitingOnSimilarityScore"
-msgstr "Menunggu untuk menghasilkan hasil kesamaan."
 
 #, fuzzy
 msgid "plugins.generic.plagiarism.manager.settings.serviceAccessMissing"
@@ -385,53 +383,8 @@ msgstr "Successfully deleted the iThenticate webhook with id: {$webhookId} for c
 msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.error"
 msgstr "Unable to delete the iThenticate webhook with id: {$webhookId} for context id: {$contextId}"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.delete.description"
-msgstr "Hapus webhook untuk akun iThenticate untuk jalur konteks yang diberikan"
+msgid "plugins.generic.plagiarism.genre.ithenticate.autoDeposit"
+msgstr "Semua file yang ditugaskan ke komponen ini akan dikirim ke iThenticate jika deposito otomatis diaktifkan"
 
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.credentials.missing"
-msgstr "Kredensial API diperlukan. Berikan --api-url dan --api-key, atau --context untuk menggunakan kredensial yang tersimpan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.nothingToDelete"
-msgstr "Tidak ada webhook yang ditemukan di API iThenticate untuk konteks ini. Tidak ada yang perlu dihapus."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.orphaned"
-msgstr "Webhook ada di API iThenticate (id: {$webhookId}, url: {$url}) tetapi TIDAK ada di basis data. Gunakan 'update --include-api' untuk menghapus dan mendaftar ulang, atau 'delete --include-api' untuk menghapusnya."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.list.empty"
-msgstr "Tidak ada webhook yang ditemukan di API iThenticate untuk kredensial yang diberikan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.alreadyExists"
-msgstr "Webhook sudah ada di API iThenticate dengan id: {$webhookId} untuk URL: {$url}. Gunakan 'update --include-api' untuk menggantinya."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.nothingToDelete"
-msgstr "Tidak ada webhook yang ditemukan di basis data untuk konteks ini. Gunakan --include-api untuk juga memeriksa API iThenticate."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.notFoundAtApi"
-msgstr "Webhook {$webhookId} tidak ditemukan di API iThenticate (mungkin sudah dihapus sebelumnya). Membersihkan catatan basis data lokal."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.deleted.dbPreserved"
-msgstr "Webhook yang dihapus {$deletedId} berbeda dari catatan basis data ({$dbId}). Catatan basis data dipertahankan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.dbApiMismatch"
-msgstr "Ketidakcocokan ID webhook: basis data memiliki {$dbId} tetapi API iThenticate memiliki {$apiId} untuk URL {$url}. Gunakan 'update --include-api' untuk menyelesaikan."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.tools.registerWebhooks.webhook.includeApi.validateDbMismatch"
-msgstr "Catatan: Webhook yang divalidasi {$validatedId} (dari API) berbeda dari catatan basis data ({$dbId})."
-
-#, fuzzy
-msgid "plugins.generic.plagiarism.similarity.error.title"
-msgstr "Plagiarism check error"
-
-msgid "plugins.generic.plagiarism.error.withDetail"
-msgstr "{$message} ({$detail})"
+msgid "plugins.generic.plagiarism.genre.ithenticate"
+msgstr "iThenticate"
