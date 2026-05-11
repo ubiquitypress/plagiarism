@@ -189,7 +189,7 @@ class PlagiarismPlugin extends GenericPlugin
 	 */
 	public function getCanEnable($contextId = null)
 	{
-		return !Config::getVar('ithenticate', 'ithenticate');
+		return true;
 	}
 
 	/**
@@ -197,7 +197,7 @@ class PlagiarismPlugin extends GenericPlugin
 	 */
 	public function getCanDisable($contextId = null)
 	{
-		return !Config::getVar('ithenticate', 'ithenticate');
+		return true;
 	}
 
 	/**
