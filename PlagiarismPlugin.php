@@ -28,6 +28,7 @@ use APP\plugins\generic\plagiarism\classes\api\formRequests\SubmissionPlagiarism
 use APP\plugins\generic\plagiarism\classes\api\PlagiarismApiActionManager;
 use APP\plugins\generic\plagiarism\classes\PlagiarismErrorFormatter;
 use APP\plugins\generic\plagiarism\classes\IThenticateWebhookManager;
+use APP\plugins\generic\plagiarism\classes\migration\upgrade\EncryptApiKey;
 use APP\API\v1\submissions\SubmissionController;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Event;
@@ -1225,6 +1226,22 @@ class PlagiarismPlugin extends GenericPlugin
 
         return parent::manage($args, $request);
     }
+
+	/**
+	 * @copydoc \PKP\plugins\Plugin::getEncryptedSettingFields()
+	 */
+	public function getEncryptedSettingFields(): array
+	{
+		return ['ithenticateApiKey'];
+	}
+
+	/**
+	 * @copydoc \PKP\plugins\Plugin::getInstallMigration()
+	 */
+	public function getInstallMigration()
+	{
+		return new EncryptApiKey();
+	}
 
 	/**
 	 * Get the ithenticate service access as array in format [API_URL, API_KEY]

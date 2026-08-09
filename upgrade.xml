@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE install SYSTEM "../../../lib/pkp/dtd/install.dtd">
+
+<!--
+  * upgrade.xml
+  *
+  * Copyright (c) 2026 Simon Fraser University
+  * Copyright (c) 2026 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
+  *
+  * Plugin upgrade descriptor.
+  *
+  * Intentionally carries no install actions. Its sole purpose is to make the Plugin Gallery
+  * "Upgrade" path (PluginHelper::upgradePlugin) run the Upgrade installer, whose execute() always
+  * fires the Installer::postInstall hook — which in turn runs PlagiarismPlugin::getInstallMigration()
+  * (EncryptApiKey). Without this file that path skips the installer entirely and the migration would
+  * not run on a gallery-only upgrade. The site upgrade and CLI paths already fire the migration.
+  -->
+<install version="1.6.0.0">
+</install>

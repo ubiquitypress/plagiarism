@@ -42,10 +42,12 @@
 			label="plugins.generic.plagiarism.manager.settings.apiUrl"
 		}
 
-		{fbvElement 
-			type="text" 
-			id="ithenticateApiKey" 
-			value=$ithenticateApiKey 
+		{fbvElement
+			type="text"
+			id="ithenticateApiKey"
+			password=true
+			autocomplete="off"
+			value=$ithenticateApiKey
 			label="plugins.generic.plagiarism.manager.settings.apiKey"
 		}
 
