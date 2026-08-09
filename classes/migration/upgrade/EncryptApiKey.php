@@ -78,7 +78,6 @@ class EncryptApiKey extends Migration
     {
         try {
             Crypt::decrypt($value);
-            ray('API KEY' . $value);
             return $value;
         } catch (DecryptException $exception) {
             return Crypt::encrypt($value);
