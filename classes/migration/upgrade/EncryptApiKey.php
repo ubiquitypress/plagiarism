@@ -17,11 +17,10 @@ namespace APP\plugins\generic\plagiarism\classes\migration\upgrade;
 
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-use PKP\db\DAORegistry;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\plugins\PluginSettingsDAO;
 
 class EncryptApiKey extends Migration
 {
@@ -36,15 +35,13 @@ class EncryptApiKey extends Migration
      */
     public function up(): void
     {
-        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-
         DB::table('plugin_settings')
             ->where('plugin_name', self::PLUGIN_NAME)
             ->where('setting_name', self::SETTING_NAME)
             ->whereNotNull('setting_value')
             ->where('setting_value', '<>', '')
             ->get(['context_id', 'setting_value'])
-            ->each(function (object $row) use ($pluginSettingsDao): void {
+            ->each(function (object $row): void {
                 $encrypted = self::encryptOnce($row->setting_value);
 
                 // Already-encrypted rows come back byte-identical → nothing to write.
@@ -52,18 +49,17 @@ class EncryptApiKey extends Migration
                     return;
                 }
 
-                // Persist through the DAO (not a raw DB update) so it ALSO Cache::forget()s the stale
-                // "pluginSettings-{ctx}-plagiarismplugin" entry. A raw update leaves the persistent file
-                // cache (24h lifetime) serving the OLD plaintext, which — now that the field is encrypted —
-                // fails app()->decrypt() and makes getSetting() return null. No install/upgrade path flushes
-                // that cache, so invalidating it here is what makes every update path pick up the ciphertext.
-                $pluginSettingsDao->updateSetting(
-                    (int) $row->context_id,
-                    self::PLUGIN_NAME,
-                    self::SETTING_NAME,
-                    $encrypted,
-                    'string'
-                );
+                $contextId = (int) $row->context_id;
+
+                DB::table('plugin_settings')
+                    ->where('context_id', $row->context_id)
+                    ->where('plugin_name', self::PLUGIN_NAME)
+                    ->where('setting_name', self::SETTING_NAME)
+                    ->update(['setting_value' => $encrypted]);
+
+                // PluginSettingsDAO caches each plugin+context in the persistent file store (24h lifetime)
+                // and only forgets it from updateSetting()/deleteSetting(). Need manula clearing
+                Cache::forget("pluginSettings-{$contextId}-" . self::PLUGIN_NAME);
             });
     }
 
