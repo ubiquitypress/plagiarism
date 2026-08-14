@@ -67,6 +67,10 @@ ithenticate = On
 ; api_url[Journal_or_Server_or_Press_path] = "https://some-ithenticate-account.com"
 ; api_key[Journal_or_Server_or_Press_path] = "YOUR_API_KEY"
 
+; Note: an API key entered on the plugin's settings page is stored ENCRYPTED at rest in the database
+; (AES via the site `app_key`, required since OJS 3.5) and decrypted transparently when used. Keys
+; provided here in config.inc.php are read as-is and take precedence over any database-stored value.
+
 ; To globally disable auto upload of submission files to iThenticate service, uncomment following line.
 ; disableAutoSubmission = On
 ; It is possible to disable auto upload at specific Journal/Server/Press level rather than globally
