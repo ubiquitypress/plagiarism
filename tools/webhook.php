@@ -764,7 +764,8 @@ class Webhook extends CommandLineTool
 
             } catch (\Illuminate\Http\Client\ConnectionException $e) {
                 array_push($values, "FAILED - Message: {$e->getMessage()}");
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
+                // report it in the table instead of letting it kill the whole validate run
                 array_push($values, "FAILED - Message: {$e->getMessage()}");
             }
 
