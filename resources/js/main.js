@@ -9,7 +9,7 @@ const { useApp } = pkp.modules.useApp;
 const { useNotify } = pkp.modules.useNotify;
 const { useCurrentUser } = pkp.modules.useCurrentUser;
 import { ref, computed, watch, onUnmounted } from "vue";
-import { deduceFileStatus } from "./fileStatus";
+import { deduceFileStatus, hasSimilarityScore } from "./fileStatus";
 
 function runPlagiarismAction(piniaContext, stageNamespace) {
     
@@ -212,7 +212,7 @@ function runPlagiarismAction(piniaContext, stageNamespace) {
         }
         return Object.values(status.files).some(file =>
             file.ithenticateId !== null &&
-            file.ithenticateSimilarityResult === null &&
+            !hasSimilarityScore(file) &&
             // A file with a processing error is terminal — no result will arrive, so stop streaming.
             !file.ithenticateProcessingError
         );
@@ -457,7 +457,7 @@ function runPlagiarismAction(piniaContext, stageNamespace) {
                             Object.entries(data.files).forEach(([fileId, newFile]) => {
                                 const oldFile = oldFiles[fileId];
                                 if (oldFile && oldFile.ithenticateId !== null) {
-                                    if (oldFile.ithenticateSimilarityResult === null && newFile.ithenticateSimilarityResult !== null) {
+                                    if (!hasSimilarityScore(oldFile) && hasSimilarityScore(newFile)) {
                                         hasNewSimilarityResult = true;
                                     }
 

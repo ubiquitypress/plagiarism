@@ -1,7 +1,7 @@
 <template>
     <PkpTableCell>
         <span
-            v-if="fileStatus?.ithenticateSimilarityResult"
+            v-if="hasSimilarityScore(fileStatus)"
             class="plagiarism-similarity-score"
         >
             <a
@@ -46,7 +46,7 @@
 <script setup>
 
     import { computed } from "vue";
-    import { deduceFileStatus } from "../fileStatus";
+    import { deduceFileStatus, hasSimilarityScore } from "../fileStatus";
 
     const { useApp } = pkp.modules.useApp;
     const { useLocalize } = pkp.modules.useLocalize;
