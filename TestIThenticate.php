@@ -430,17 +430,27 @@ class TestIThenticate
      */
     public function getSimilarityResult(string $submissionUuid): ?string
     {
-        error_log("Similarity report result retrived for iThenticate submission id : {$submissionUuid}");
+        // The overall match percentage is configurable via `[ithenticate] test_similarity_score` so
+        // test mode can exercise scores the hardcoded default never reached — most importantly a
+        // legitimate 0% match, which no amount of mock-driven testing could previously produce.
+        $overallMatchPercentage = (int) Config::getVar('ithenticate', 'test_similarity_score', 15);
+
+        // Keep the breakdown coherent with the overall score; at the 15 default these stay 12/10/193.
+        $internetMatchPercentage = min(12, $overallMatchPercentage);
+        $publicationMatchPercentage = min(10, $overallMatchPercentage);
+        $topSourceLargestMatchedWordCount = $overallMatchPercentage > 0 ? 193 : 0;
+
+        error_log("Similarity report result retrived for iThenticate submission id : {$submissionUuid} with overall match percentage : {$overallMatchPercentage}");
         return '{
             "submission_id": "'.$submissionUuid.'",
-            "overall_match_percentage": 15,
-            "internet_match_percentage": 12,
-            "publication_match_percentage": 10,
+            "overall_match_percentage": '.$overallMatchPercentage.',
+            "internet_match_percentage": '.$internetMatchPercentage.',
+            "publication_match_percentage": '.$publicationMatchPercentage.',
             "submitted_works_match_percentage": 0,
             "status": "COMPLETE",
             "time_requested": "2017-11-06T19:14:31.828Z",
             "time_generated": "2017-11-06T19:14:45.993Z",
-            "top_source_largest_matched_word_count": 193,
+            "top_source_largest_matched_word_count": '.$topSourceLargestMatchedWordCount.',
             "top_matches": []
         }';
     }
