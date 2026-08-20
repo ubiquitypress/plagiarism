@@ -119,6 +119,14 @@ class PlagiarismPlugin extends GenericPlugin
 	protected ?IThenticateWebhookManager $ithenticateWebhookManager = null;
 
 	/**
+	 * The resolved cache busting query string for this plugin's built assets, or an empty
+	 * string when the plugin version is unavailable.
+	 *
+	 * @see static::getAssetVersionQuery()
+	 */
+	protected ?string $assetVersionQuery = null;
+
+	/**
 	 * Determine if running application is OPS or not
 	 */
 	public static function isOPS(): bool
@@ -302,13 +310,35 @@ class PlagiarismPlugin extends GenericPlugin
 	}
 
 	/**
+	 * Get the cache busting query string to stamp on this plugin's built assets.
+	 *
+	 * Core only stamps the *application* version, so a plugin only upgrade leaves the bundle URL
+	 * unchanged and cached clients keep the old JS/CSS. Empty when the plugin has no `versions`
+	 * row yet (it can be force enabled from `config.inc.php`); the URL is then left bare so core
+	 * still stamps it — an empty `?v=` would suppress that and leave no version at all.
+	 *
+	 * MUST only be called from a registered plugin instance. On an unregistered one the plugin
+	 * path is null, so `Plugin::getCurrentVersion()` looks up an empty product and `VersionDAO`
+	 * silently falls back to the core application version instead of returning false.
+	 */
+	protected function getAssetVersionQuery(): string
+	{
+		if ($this->assetVersionQuery === null) {
+			$version = $this->getCurrentVersion();
+			$this->assetVersionQuery = $version ? '?v=' . $version->getVersionString() : '';
+		}
+
+		return $this->assetVersionQuery;
+	}
+
+	/**
 	 * Add the plagiarism style
 	 */
 	public function addPlagiarismStyleSheet(Request $request, TemplateManager $templateManager): void
 	{
 		$templateManager->addStyleSheet(
 			'ithenticatePlagiarismPluginStyle',
-			"{$request->getBaseUrl()}/{$this->getPluginPath()}/public/build/build.css",
+			"{$request->getBaseUrl()}/{$this->getPluginPath()}/public/build/build.css{$this->getAssetVersionQuery()}",
 			[
 				'contexts' => ['backend']
 			]
@@ -322,7 +352,7 @@ class PlagiarismPlugin extends GenericPlugin
 	{
 		$templateManager->addJavaScript(
 			'ithenticatePlagiarismPluginScript',
-			"{$request->getBaseUrl()}/{$this->getPluginPath()}/public/build/build.iife.js",
+			"{$request->getBaseUrl()}/{$this->getPluginPath()}/public/build/build.iife.js{$this->getAssetVersionQuery()}",
 			[
 				'inline' => false,
 				'contexts' => ['backend'],
