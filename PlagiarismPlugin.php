@@ -808,10 +808,10 @@ class PlagiarismPlugin extends GenericPlugin
 			$submission->setData('ithenticateSubmissionCompletedAt', Core::getCurrentDate());
 		} catch (Throwable $exception) {
 			error_log('submit for plagiarism check failed with exception ' . $exception->__toString());
-			$this->recordSubmissionError(
-				$submission,
-				PlagiarismErrorFormatter::make('plugins.generic.plagiarism.ithenticate.upload.complete.failed')
-			);
+			// $this->recordSubmissionError(
+			// 	$submission,
+			// 	PlagiarismErrorFormatter::make('plugins.generic.plagiarism.ithenticate.upload.complete.failed')
+			// );
 			return false;
 		}
 
