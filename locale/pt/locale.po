@@ -12,3 +12,6 @@ msgstr "Todos os arquivos atribuídos a este componente serão enviados para iTh
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Falha na geração do relatório de similaridade"

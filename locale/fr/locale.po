@@ -194,3 +194,6 @@ msgstr "Plagiarism check error"
 
 msgid "plugins.generic.plagiarism.error.withDetail"
 msgstr "{$message} ({$detail})"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Échec de la génération du rapport de similitude"

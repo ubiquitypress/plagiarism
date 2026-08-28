@@ -387,3 +387,6 @@ msgstr "Vse datoteke, dodeljene tej komponenti, bodo poslane v iThenticate, če 
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generiranje poročila o podobnosti ni uspelo."

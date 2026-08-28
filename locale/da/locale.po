@@ -404,3 +404,6 @@ msgstr "Alle filer tildelt denne komponent vil blive sendt til iThenticate, hvis
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generering af lighedsrapport mislykkedes"

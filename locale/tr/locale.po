@@ -401,3 +401,6 @@ msgstr "Bu bileşene atanan tüm dosyalar, otomatik depozito etkinleştirilmişs
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Benzerlik raporu oluşturulamadı"

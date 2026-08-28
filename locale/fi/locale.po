@@ -190,3 +190,6 @@ msgstr "Kaikki tälle komponentille määritetyt tiedostot lähetetään iThenti
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Samankaltaisuusraportin luominen epäonnistui"

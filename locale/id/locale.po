@@ -388,3 +388,6 @@ msgstr "Semua file yang ditugaskan ke komponen ini akan dikirim ke iThenticate j
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Pembuatan laporan kemiripan gagal"

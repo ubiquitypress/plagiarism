@@ -98,3 +98,6 @@ msgstr "Alla filer som tilldelats denna komponent kommer att skickas till iThent
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generering av likhetsrapport misslyckades"

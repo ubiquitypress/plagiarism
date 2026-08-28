@@ -99,3 +99,6 @@ msgstr "Tất cả các tập tin được gán cho thành phần này sẽ đư
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Tạo báo cáo độ tương đồng thất bại"

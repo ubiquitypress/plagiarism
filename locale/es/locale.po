@@ -403,3 +403,6 @@ msgstr "Todos los archivos asignados a este componente se enviarán a iThenticat
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Error al generar el informe de similitud"

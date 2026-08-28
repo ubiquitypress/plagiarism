@@ -382,3 +382,6 @@ msgstr "Усі файли, призначені цьому компоненту,
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Не вдалося згенерувати звіт про схожість"

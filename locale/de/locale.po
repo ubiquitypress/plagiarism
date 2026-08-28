@@ -409,3 +409,6 @@ msgstr "Alle diesem Komponenten zugewiesenen Dateien werden an iThenticate gesen
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generierung des Ähnlichkeitsberichts fehlgeschlagen"

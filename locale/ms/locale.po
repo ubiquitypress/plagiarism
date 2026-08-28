@@ -101,3 +101,6 @@ msgstr "Semua fail yang ditugaskan kepada komponen ini akan dihantar ke iThentic
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Penjanaan laporan kesamaan gagal"

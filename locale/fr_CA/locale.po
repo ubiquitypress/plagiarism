@@ -403,3 +403,6 @@ msgstr "Tous les fichiers assignés à ce composant seront envoyés à iThentica
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Échec de la génération du rapport de similitude"

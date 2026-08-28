@@ -99,3 +99,6 @@ msgstr "ამ კომპონენტზე შეთავაზებუ�
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "მსგავსების ანგარიშის გენერაცია ვერ მოხერხდა"

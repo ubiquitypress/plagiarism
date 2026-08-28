@@ -412,3 +412,6 @@ msgstr "Всички файлове, приписани на този компо
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Неуспешно генериране на доклад за сходство"

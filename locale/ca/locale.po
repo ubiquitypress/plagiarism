@@ -98,3 +98,6 @@ msgstr "Tots els fitxers assignats a aquest component seran enviats a iThenticat
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Ha fallat la generació de linforme de similitud"

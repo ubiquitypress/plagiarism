@@ -125,3 +125,6 @@ msgstr "Tutti i file assegnati a questo componente verranno inviati a iThenticat
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generazione del report di somiglianza non riuscita"

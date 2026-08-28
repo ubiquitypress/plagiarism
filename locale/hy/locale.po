@@ -412,3 +412,6 @@ msgstr "Այս բաղադրիչին վերապահված բոլոր ֆայլեր
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Նմանության զեկույցի ստեղծումը ձախողվել է"

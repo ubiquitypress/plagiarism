@@ -393,3 +393,6 @@ msgstr "Сите датотеки доделени на оваа компоне�
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Генерирањето на извештајот за сличност не успеа"

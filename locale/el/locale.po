@@ -100,3 +100,6 @@ msgstr "Όλα τα αρχεία που έχουν αντιστοιχηθεί σ
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Αποτυχία δημιουργίας αναφοράς ομοιότητας"

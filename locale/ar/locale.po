@@ -283,3 +283,6 @@ msgstr "سيتم إرسال جميع الملفات المسندة إلى هذا
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "فَشَلَ إِنْشَاءُ تَقْرِيرِ التَّشَابُه"

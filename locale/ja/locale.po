@@ -7,3 +7,6 @@ msgstr "このコンポーネントに割り当てられたすべてのファイ
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "類似性レポートの生成に失敗しました。"

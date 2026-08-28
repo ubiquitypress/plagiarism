@@ -314,3 +314,6 @@ msgstr "All files assigned to this component will be sent to iThenticate if auto
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Similarity report generation failed"

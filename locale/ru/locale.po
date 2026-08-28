@@ -124,3 +124,6 @@ msgstr "Все файлы, назначенные этому компонент�
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Не удалось создать отчет о схожести"

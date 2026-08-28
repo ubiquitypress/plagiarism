@@ -382,3 +382,6 @@ msgstr "Бул компонентке дайындалган бардык фай
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Окшоштук отчетун түзүү ишке ашкан жок"

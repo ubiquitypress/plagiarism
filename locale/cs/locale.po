@@ -392,3 +392,6 @@ msgstr "Všechny soubory přiřazené k této součásti budou odeslány do iThe
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Generování zprávy o podobnosti selhalo"

@@ -99,3 +99,6 @@ msgstr "Todos os ficheiros asignados a este compoñente serán enviados a iThent
 
 msgid "plugins.generic.plagiarism.genre.ithenticate"
 msgstr "iThenticate"
+
+msgid "plugins.generic.plagiarism.similarity.error.title"
+msgstr "Fallou a xeración do informe de similitude"
